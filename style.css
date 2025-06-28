@@ -1,0 +1,569 @@
+/* General Styling */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Cairo:wght@200..1000&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cairo;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    direction: rtl; /* Set direction to Right-to-Left for Arabic */
+    text-align: right; /* Align text to the right for Arabic */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navbar (الشريط العلوي) */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(139, 0, 0); /* Dark Red / Burgundy */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.navbar-left span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar-center .logo {
+    height: 65px; /* تم تكبير الشعار */
+    width: auto;
+    border-radius: 50%;
+}
+
+.navbar-right .menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+/* Sidebar (النافذة الجانبية) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background-color: rgba(139, 0, 0, 0.95); /* Slightly transparent dark red */
+    color: white;
+    padding: 20px;
+    box-shadow: -3px 0 7px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease-in-out;
+    z-index: 1001;
+}
+
+.sidebar.active {
+    right: 0; /* Show when active */
+}
+
+.sidebar .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5em;
+    position: absolute;
+    top: 10px;
+    left: 10px; /* Align to the left for RTL */
+    cursor: pointer;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 60px; /* Space for close button */
+}
+
+.sidebar nav ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul li a {
+    color: white;
+    font-size: 1.3em;
+    padding: 10px;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(-5px); /* Subtle slide effect */
+}
+
+/* Overlay (الطبقة الشفافة عند فتح القائمة) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Main Content Padding */
+.main-content {
+    padding-top: 80px; /* Space for fixed navbar */
+    padding-bottom: 60px; /* Space for fixed footer */
+    min-height: calc(100vh - 140px); /* Adjust height for content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Homepage Specifics */
+.hero-section {
+    text-align: center;
+    margin: 50px 0;
+    max-width: 800px;
+}
+
+.hero-section h1 {
+    font-size: 2.5em;
+    color: #555;
+    line-height: 1.6;
+}
+
+.options-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.option-button {
+    background-color: rgb(139, 0, 0); /* Dark Red / Burgundy */
+    color: white;
+    padding: 15px 25px; /* تم تصغير الأزرار */
+    border-radius: 25px; /* جعلها أكثر انحناءً */
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    min-width: 180px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.option-button:hover {
+    background-color: rgb(100, 0, 0); /* Slightly darker red on hover */
+    transform: translateY(-5px); /* Lift effect */
+}
+
+/* Footer (التذييل) */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a1515;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+    z-index: 999;
+}
+
+/* Student List Page */
+.students-list-section {
+    width: 100%;
+    max-width: 900px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.students-list-section h2 {
+    text-align: center;
+    color: rgb(139, 0, 0);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.student-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.student-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.student-item span {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #444;
+}
+
+.view-student-btn {
+    background-color: rgb(139, 0, 0);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 17px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.view-student-btn:hover {
+    background-color: rgb(100, 0, 0);
+}
+
+/* Student Details Page */
+.student-details-section {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.student-details-section .student-name {
+    color: rgb(139, 0, 0);
+    text-align: right;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.data-table-container {
+    overflow-x: auto; /* For responsive tables */
+    margin-bottom: 40px;
+}
+
+.student-data-table {
+    width: 100%;
+    margin-top: 20px;
+    text-align: right;
+    border: none; /* إزالة الحدود الخارجية للجدول بالكامل */
+}
+
+.student-data-table th, .student-data-table td {
+    border: none; /* إزالة جميع الحدود بين الخلايا */
+    padding: 12px;
+    text-align: right;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.1); /* إضافة ظل خفيف كفاصل بدلاً من الحدود */
+}
+
+.student-data-table th {
+    background-color: rgb(139, 0, 0);
+    color: white;
+    font-weight: bold;
+    white-space: nowrap; /* Prevent wrapping in headers */
+    border-radius: 10px;
+}
+
+/* إخفاء حقول الإدخال وأزرار الإجراءات */
+.student-data-table td input[type="date"],
+.student-data-table td input[type="text"],
+.student-data-table td input[type="number"],
+.student-data-table td button {
+    display: none;
+}
+
+.attendance-section {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: right;
+    max-width: 400px;
+    margin-right: auto; /* Align to right */
+    margin-top: 30px;
+}
+
+.attendance-section h3 {
+    color: rgb(139, 0, 0);
+    margin-bottom: 15px;
+}
+
+.attendance-section p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.attendance-section .absence-count {
+    font-weight: normal; /* إزالة الخط العريض */
+    color: #444; /* تغيير اللون إلى الرمادي ليعكس أنها ليست أرقاماً قابلة للتغيير */
+}
+
+/* إخفاء زر إضافة الغياب */
+.add-absence-btn {
+    display: none;
+}
+
+
+/* Points Page */
+.points-section {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.points-section .section-title {
+    color: rgb(139, 0, 0);
+    text-align: right;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.points-table-container {
+    overflow-x: auto;
+}
+
+.points-table {
+    width: 100%;
+    margin-top: 20px;
+    text-align: right;
+    border: none; /* إزالة الحدود الخارجية للجدول بالكامل */
+}
+
+.points-table th, .points-table td {
+    border: none; /* إزالة جميع الحدود بين الخلايا */
+    padding: 12px;
+    text-align: right;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.1); /* إضافة ظل خفيف كفاصل بدلاً من الحدود */
+}
+
+.points-table th {
+    background-color: rgb(139, 0, 0);
+    color: white;
+    font-weight: bold;
+}
+
+.points-table tbody tr {
+    background-color: white !important; /* جعل جميع الصفوف بيضاء */
+}
+
+/* Course Info Page */
+.course-info-section {
+    width: 100%;
+    max-width: 900px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.course-info-section .section-title {
+    color: rgb(139, 0, 0);
+    text-align: right;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.course-info-section .info-content p,
+.course-info-section .info-content ul {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.course-info-section .info-content ul {
+    list-style-type: arabic-indic; /* For Arabic numbering */
+    padding-right: 20px; /* Indent for RTL */
+}
+
+.course-info-section .info-content ul li {
+    margin-bottom: 10px;
+}
+
+/* Teachers Page */
+.teachers-section {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.teachers-section .section-title {
+    color: rgb(139, 0, 0);
+    text-align: right;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.teacher-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.teacher-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.social-icon {
+    display: inline-block;
+    background-color: #f0e6d2;
+    padding: 11px 0px ;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    margin: 0 5px;
+    transition: transform 0.2s ease-in-out;
+}
+.teacher-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid rgb(139, 0, 0);
+}
+
+.teacher-card h3 {
+    color: rgb(139, 0, 0);
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.teacher-card p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-left span {
+        font-size: 1.2em;
+    }
+
+    .hero-section h1 {
+        font-size: 1.8em;
+    }
+
+    .option-button {
+        padding: 15px 25px;
+        font-size: 1.2em;
+        min-width: unset;
+        width: 100%;
+    }
+    
+
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .student-data-table th, .student-data-table td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    /* .student-data-table td input {
+        font-size: 0.9em;
+    } */ /* هذا لم يعد موجوداً */
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .navbar-left span {
+        font-size: 1em;
+    }
+
+    .navbar-center .logo {
+        height: 40px;
+    }
+
+    .menu-toggle {
+        font-size: 1.8em;
+    }
+
+    .hero-section h1 {
+        font-size: 1.5em;
+    }
+
+    .option-button {
+        font-size: 1.2em;
+        padding: 16px  12px ;
+    }
+
+    .students-list-section, .student-details-section, .points-section, .course-info-section, .teachers-section {
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .student-details-section .student-name,
+    .points-section .section-title,
+    .course-info-section .section-title,
+    .teachers-section .section-title {
+        font-size: 1.8em;
+    }
+
+    .attendance-section {
+        padding: 15px;
+    }
+}
