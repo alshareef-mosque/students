@@ -377,6 +377,7 @@ a {
     background-color: rgb(139, 0, 0);
     color: white;
     font-weight: bold;
+    border-radius: 10px;
 }
 
 .points-table tbody tr {
