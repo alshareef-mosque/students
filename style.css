@@ -27,7 +27,7 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgb(139, 0, 0); /* Dark Red / Burgundy */
+    background-color: rgb(97, 19, 19); /* Dark Red / Burgundy */
     color: white;
     display: flex;
     justify-content: space-between;
@@ -236,7 +236,7 @@ a {
 }
 
 .view-student-btn {
-    background-color: rgb(139, 0, 0);
+    background-color: rgb(97, 19, 19);
     color: white;
     padding: 10px 15px;
     border-radius: 17px;
@@ -288,7 +288,7 @@ a {
 }
 
 .student-data-table th {
-    background-color: rgb(139, 0, 0);
+    background-color: rgb(97, 19, 19);
     color: white;
     font-weight: bold;
     white-space: nowrap; /* Prevent wrapping in headers */
@@ -374,7 +374,7 @@ a {
 }
 
 .points-table th {
-    background-color: rgb(139, 0, 0);
+    background-color: rgb(97, 19, 19);
     color: white;
     font-weight: bold;
     border-radius: 25px;
@@ -508,6 +508,7 @@ a {
         font-size: 1.2em;
         min-width: unset;
         width: 100%;
+        background-color: rgb(97, 19, 19);
     }
     
 
@@ -549,7 +550,7 @@ a {
 
     .option-button {
         font-size: 1.2em;
-        padding: 16px  12px ;
+        padding: 12px  8px ;
     }
 
     .students-list-section, .student-details-section, .points-section, .course-info-section, .teachers-section {
